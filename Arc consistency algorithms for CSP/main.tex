@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{setspace}
+\title{Constraint Satisfaction Problem Description
+}
+
+\date{}
+
+	\addtolength{\topmargin}{-.400in}
+	\addtolength{\textheight}{1.75in}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Problem statement}
+
+Comparison between AC 1, AC 2, AC 3 and AC 4 arc consistency algorithm in Constraint Satisfaction Problem.
+
+
+\section{Input}
+ 
+A Constraint Satisfaction Problem can be defined by a tuple $\left\langle X, D, C\right\rangle$. Here, 
+
+\begin{itemize}
+\setlength\itemsep{0em}
+  \item \textit{X} is a set of variables, $ \left\{ X_1, ....., X_n \right\} $.
+
+  \item \textit{D} is a set of domains, $ \left\{ D_1, ....., D_n \right\} $, one for each variable.
+
+  \item \textit{C} is a set of constraints that specify allowable combinations of values.
+\end{itemize}
+
+It is easy to visualize a CSP as a constraint graph.  Constraint graph of a CSP is the graph whose nodes are the variables of the problem and an arc joins a pair of variables if the two variables occur together in a constraint.
+
+
+\subsection{Graph generation}
+We will generate a constraint graph with n nodes $\left( 20 \leq n \leq 100 \right)$ randomly and also assign edges randomly between vertices. For graph generation, we will use the Erdős-Rényi model. It is simple and allows to control graph density.
+
+\subsection{Constraints}
+Each constraint lists all combinations of valid domain values for the variables participating in the constraint. A binary constraint relates two variables. For example, $\left\langle (X, Y), X \ne Y\right\rangle$. For our problem, we will use mathematical functions as binary constraints. We will assign one constraint randomly from the list of predefined constraints to every arc in constraint graph. Constraint lists are:
+
+\begin{itemize}
+\setlength\itemsep{0em}
+  \item $ X > Y $
+
+  \item $ 2*X < 3*Y $
+
+ \item $ Y = X^2 $
+
+  \item $ X | Y $
+  
+  \item $ gcd(X, Y) = 1 $
+
+
+\end{itemize}
+
+\subsection{Domains}
+For each variable, its domain consists of a set of allowable values, $ \left\{ v_1, ....., v_k \right\} $ for this variable. Allowable values can be any number, letters, strings etc. However, our domains will consist of only numbers in this problem as our constraints are mathematical functions. For each node, we will select domain size randomly and assign random values from predefined range [1, 500]. There will be a minimum domain size aslo.
+
+\section{Implementation and comparison}
+
+After generating the constraint graph, we will run AC 1, AC 2, AC 3 and AC 4 arc consistency algorithms on the graph and record different performance metrics as instructed. Example metrics are running time, number of times a constraint is accessed etc.\\
+For comparison, we will construct number of nodes vs running time for each algorithms. We can compare them from the output graph.
+
+\end{document}
+
